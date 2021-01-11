@@ -1,37 +1,42 @@
 #include <Arduino.h>
 
-class Bouton {
+class Bouton
+{
 
-    public:
+public:
+    Bouton()
+    {
+    }
 
-        Bouton() {
-            
+    Bouton(int pin)
+    {
+        numPin = pin;
+    }
+
+    int getNumber()
+    {
+        int res = nbPressed;
+        nbPressed = 0;
+        return res;
+    };
+
+    void check()
+    {
+
+        if (digitalRead(numPin) == HIGH)
+        {
+            isPressed = true;
         }
-
-        Bouton(int pin) {
-            numPin = pin;
-        }
-
-        int getNumber() {
-            return nbPressed;
+        else if (isPressed)
+        {
+            isPressed = false;
+            nbPressed++;
+            Serial.println(getNumber());
         };
+    };
 
-        void check() {
-
-            if (digitalRead(numPin) == HIGH) {
-                isPressed = true;
-            }
-            else if (isPressed) {
-                isPressed = false;
-                nbPressed++;
-                Serial.println(getNumber());
-            };
-        };
-
-    private :
-
-        int nbPressed = 0;
-        int numPin;
-        boolean isPressed = false;
+private:
+    int nbPressed = 0;
+    int numPin;
+    boolean isPressed = false;
 };
-

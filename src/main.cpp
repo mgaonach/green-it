@@ -2,8 +2,13 @@
 #include <SPI.h>
 #include <EEPROM.h>
 #include <bouton.cpp>
+#include <T2WhisperNode.h>
+#include <ledNumber.cpp>
 
-Bouton bouton4 = Bouton(4);
+// ===== Q8 =====
+// Bouton bouton4 = Bouton(4);
+// Bouton bouton5 = Bouton(5);
+// ===============
 
 void setup() {
   
@@ -11,6 +16,8 @@ void setup() {
 
   // Q4
   Serial.println("Toto");
+  LedNumber ledNumber = LedNumber(6,9);
+  ledNumber.printNumber(24);
 }
 
 void loop() {
@@ -31,10 +38,15 @@ void loop() {
   // digitalWrite(9, digitalRead(5));
   // ===============
 
-  // ===== Q7 =====
-  bouton4.check();
+  // ===== Q8 =====
+  // bouton4.check();
+  // bouton5.check();
+  // if (bouton5.getNumber() > 0) {
+  //   Serial.println(bouton4.getNumber());
+  // }
   // ===============
 
-
+  // ===== Q9 =====
+  // ===============
 
 }

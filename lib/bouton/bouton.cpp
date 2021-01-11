@@ -15,14 +15,18 @@ public:
 
     int getNumber()
     {
-        int res = nbPressed;
-        nbPressed = 0;
-        return res;
+        if (millis() - lastClick > 500) {
+            int res = nbPressed;
+            nbPressed = 0;
+            return res;
+        }
+        else {
+            return 0;
+        };
     };
 
     void check()
     {
-
         if (digitalRead(numPin) == HIGH)
         {
             isPressed = true;
@@ -30,8 +34,8 @@ public:
         else if (isPressed)
         {
             isPressed = false;
+            lastClick = millis();
             nbPressed++;
-            Serial.println(getNumber());
         };
     };
 
@@ -39,4 +43,5 @@ private:
     int nbPressed = 0;
     int numPin;
     boolean isPressed = false;
+    unsigned long lastClick;
 };

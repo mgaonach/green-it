@@ -35,6 +35,7 @@ public:
         {
             isPressed = false;
             lastClick = millis();
+            Serial.println("Pressed");
             nbPressed++;
         };
     };

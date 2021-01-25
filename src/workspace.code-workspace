@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "greenit-passerelle",
+			"path": "..\\..\\greenit-passerelle\\greenit-passerelle"
+		}
+	],
+	"settings": {}
+}
